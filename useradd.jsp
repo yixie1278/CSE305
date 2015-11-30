@@ -1,19 +1,19 @@
 <%
-		String userName = request.getParameter("userName");
+		//String userName = request.getParameter("userName");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String Password1 = request.getParameter("Password1");
 		String address = request.getParameter("address");
-		String city = request.getParameter("city");
-		String state = request.getParameter("state");
+		
 		String zipCode = request.getParameter("zipCode");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
+		String ssn = request.getParameter("ssn");
 
 		String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-		String mysURL = "jdbc:mysql://sbcstldb.cs.stonybrook.edu:3306/cse305ta"; 
-		String mysUserID = "cse305ta"; 
-		String mysPassword = "107724115";
+		String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu/sikwong"; 
+		String mysUserID = "sikwong"; 
+		String mysPassword = "108620515";
 /*    	
 	if ((username!=null) &&(userpasswd!=null))
 	{
@@ -39,16 +39,27 @@
             
             			java.sql.Statement stmt1=conn.createStatement();
 	            if (request.getParameter("target").trim().equals("employee")){
-	            	String ssn = request.getParameter("ssn");
-					
-					stmt1.executeUpdate("insert into Student values('"+Id+"','"+Password1+"','"+Name+"','"+request.getParameter("status")+"')");
+	            	// insert also the id and password received from the user
+	            	//System.out.println(email);
+					stmt1.executeUpdate("INSERT INTO `person` (`SSN`, `LastName`, `FirstName`, `Address`, `ZipCode`, `telephone`, `email`, `password`) VALUES (					'"+ssn+"' ,					'"+lastName+"', 					'"+firstName+"', 					'"+address+"', 					"+zipCode+", 					"+phone+", 					'"+email+"',					'"+Password1+"'					);");
+					//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+					//Date date = new Date();
+					//System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
+					stmt1.executeUpdate("INSERT INTO `employee` ( `EmployeeID`,`level`,	`StartDate`) VALUES ('"+ssn+"', 0,NOW());");
+					//stmt1.executeUpdate("insert into person values('"+Id+"','"+Password1+"','"+Name+"','"+request.getParameter("status")+"')");
 	//							out.print("insert into Student values('"+Id+"','"+Password1+"','"+Name+"','"+request.getParameter("status")+"')");
 					stmt1.close();
 				}else{
 					String creditCardNumber = request.getParameter("creditCardNumber");
-
-					stmt1.executeUpdate("insert into Professor values('"+Id+"','"+Password1+"','"+Name+"','"+request.getParameter("DepID")+"')");
+					// insert also the id and password received from the user
+					//stmt1.executeUpdate("insert into Professor values('"+Id+"','"+Password1+"','"+Name+"','"+request.getParameter("DepID")+"')");
 	//							out.print("insert into Professor values('"+Id+"','"+Password1+"','"+Name+"','"+request.getParameter("DepID")+"')");;
+
+
+					stmt1.executeUpdate("INSERT INTO `person` (`SSN`, `LastName`, `FirstName`, `Address`, `ZipCode`, `telephone`, `email`, `password`) VALUES (					'"+ssn+"' ,					'"+lastName+"', 					'"+firstName+"', 					'"+address+"', 					"+zipCode+", 					"+phone+", 					'"+email+"',					'"+Password1+"'		);");
+
+					stmt1.executeUpdate("INSERT INTO `customer` ( `CustomerID` , `creditcardnum`) VALUES ('"+ssn+"' , '"+creditCardNumber+"');");
+					//stmt1.executeUpdate("INSERT INTO `person` (`SSN`, `LastName`, `FirstName`, `Address`, `ZipCode`, `telephone`, `email`) VALUES ('123' , 'sik wong', 'wong', 'sds', 24324314, 123242323, 'sdsafasdfsdfdf@gmail.com');");
 					stmt1.close();
 				}
 			}catch(Exception e){

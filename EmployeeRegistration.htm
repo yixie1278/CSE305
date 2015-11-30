@@ -7,8 +7,8 @@
         function Button1_onclick() {
         //if(document.myForm.username.value == "")
         //    alert("UserName Can Not Be Null!")
-            if(document.myForm.userName.value == "")
-            alert("Your ID must not be null!!!")
+            if(document.myForm.email.value == "")
+            alert("Your Email must not be null!!!")
             else if(document.myForm.firstName.value == "")
             alert("Your Name must not be null!!!")
             else if(document.myForm.Password1.value == "")
@@ -19,16 +19,11 @@
             alert("Last Name can't be null")
             else if(document.myForm.address.value == "")
             alert("address can't be null")
-            else if(document.myForm.city.value == "")
-            alert("city can't be null")
-            else if(document.myForm.state.value == "")
-            alert("state can't be null")
+           
             else if(document.myForm.zipCode.value == "")
             alert("zipCode can't be null")
             else if(document.myForm.phone.value == "")
             alert("phone can't be null")
-            else if(document.myForm.email.value == "")
-            alert("email can't be null")
             else if(document.myForm.ssn.value == "")
             alert("ssn can't be null")
             else{document.myForm.submit()}        
@@ -51,13 +46,14 @@
                     <form name="myForm" action="useradd.jsp" method="post">
                         <input type="hidden" name="target" value="employee">
                         <td style="width: 220px; height: 426px; background-color: white; vertical-align: top; text-align: left;">
-                            <span style="font-size: 10pt"><strong>Your userName: &nbsp; &nbsp;<br />    </strong></span>
-                            <input name="userName" style="font-weight: bold; font-size: 10pt; width: 145px; left: 1px; position: relative; top: 0px;" type="text" />
+                            
+
+                            <span style="font-size: 10pt"><strong> <br />EMail Address:<br /></strong></span>
+                            <input name="email" style="width: 145px" type="text" /><br />
 
                             <span style="font-size: 10pt"><strong> <br />PassWord:&nbsp;<br /></strong></span>
                             <input name="Password1" style="font-weight: bold; font-size: 10pt; width: 145px; left: 0px; position: relative; top: 0px;" type="password" /><br />
-                            <span style="font-size: 10pt"></span>
-
+                            
                             <span style="font-size: 10pt"><strong>ReEnterPassWord:<br /></strong></span>
                             <input id="Password2" style="font-weight: bold; font-size: 10pt; width: 145px" type="password" /><br />
                         
@@ -70,21 +66,13 @@
                             <span style="font-size: 10pt"><strong>Address:<br />
                             <input name="address" style="font-weight: bold; font-size: 10pt; width: 145px" type="text" /><br />
                             
-                            <span style="font-size: 10pt"><strong>City:<br />
-                            <input name="city" style="font-weight: bold; font-size: 10pt; width: 145px" type="text" /><br />
-                            
-                            <span style="font-size: 10pt"><strong>State:<br />
-                            <input name="state" style="font-weight: bold; font-size: 10pt; width: 145px" type="text" /><br />
                             
                             <span style="font-size: 10pt"><strong>Zip Code:<br />
                             <input name="zipCode" style="font-weight: bold; font-size: 10pt; width: 145px" type="text" /><br />
                             
                             <span style="font-size: 10pt"><strong>PHone:<br />
                             <input name="phone" style="font-weight: bold; font-size: 10pt; width: 145px" type="text" /><br />
-                            
-                            EMail Address:<br />
-                            <input id="email" style="width: 145px" type="text" /><br />
-
+                        
                             <span style="font-size: 10pt"><strong>SSN:<br />
                             <input name="ssn" style="font-weight: bold; font-size: 10pt; width: 145px" type="text" /><br />
                             
