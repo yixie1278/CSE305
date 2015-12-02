@@ -44,9 +44,11 @@ if(session.getValue("login")==null ){
         
             java.sql.ResultSet rs = stmt1.executeQuery("select * from employee where EmployeeID='"+session.getValue("employeeID")+"'");
             while(rs.next()){
-              if(rs.getInt("Level") == 1){
-                System.out.println("Manager");
+                if(rs.getInt("Level") == 1){
+                    System.out.println("Manager");
         %>
+        
+       
                 <a href="Manager_crud.jsp" target="_blank">Manger CRUD</a><br />
                 <a href="manager_sales_report.jsp" target="_blank">Obtain A sales report for a particular month</a><br />
                 <a href="manager_comprehensive_item.jsp" target="_blank">Comprehensive List of Items</a><br />
@@ -63,6 +65,18 @@ if(session.getValue("login")==null ){
         <%                
                // response.sendRedirect("Manager_crud.jsp");
               }
+                else{
+                   System.out.println("Customer Representative");
+         %>
+                  <a href="CustomerR_edit.jsp" target="_blank">Customer-Representative Edit</a><br />
+                  <a href="customer_mailing.jsp" target="_blank">Customer mailing lists</a><br />
+                  <a href="listSuggestion.jsp" target="_blank">Item suggestions</a><br />
+                  <a href="view_employee.jsp" target="_blank">View Employee Information</a><br />
+         <%     
+                }
+          %>     
+                
+        <%
             }
 
           }catch(Exception e){
