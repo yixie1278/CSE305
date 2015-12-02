@@ -63,7 +63,7 @@ if(session.getValue("login")==null ){
     </span>
 
    
-        <p>Level 1:Manager  </p>
+        <p>Level 1: Manager  </p>
         <p>Level 0: Customer Representative</p>
         
           <table border="1">
